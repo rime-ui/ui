@@ -16,6 +16,7 @@
     },
     "devDependencies": {
         "@chromatic-com/storybook": "^5.0.0",
+        "@rime-ui/tailwind-config": "workspace:*",
         "@rime-ui/eslint-config": "workspace:*",
         "@rime-ui/typescript-config": "workspace:*",
         "@storybook/addon-a11y": "^10.2.0",
