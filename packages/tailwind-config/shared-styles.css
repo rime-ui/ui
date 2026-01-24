@@ -1,1 +1,19 @@
 @import "tailwindcss";
+
+@theme {
+    --color-primary: #58cc02;
+    --color-primary-dark: #58a700;
+    --shadow-primary: 0 4px 0 var(--color-primary-dark);
+
+    --color-secondary: #f3f4f6;
+    --color-secondary-dark: #b0b0b0;
+    --shadow-secondary: 0 4px 0 var(--color-secondary-dark);
+
+    --color-ghost: #fff;
+    --color-ghost-dark: #e5e5e5;
+    --shadow-ghost: 0 4px 0 var(--color-ghost-dark);
+
+    --color-dangerous: #e7000b;
+    --color-dangerous-dark: #b30000;
+    --shadow-dangerous: 0 4px 0 var(--color-dangerous-dark);
+}
