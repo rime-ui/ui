@@ -165,6 +165,9 @@ importers:
       '@rime-ui/eslint-config':
         specifier: workspace:*
         version: link:../eslint-config
+      '@rime-ui/tailwind-config':
+        specifier: workspace:*
+        version: link:../tailwind-config
       '@rime-ui/typescript-config':
         specifier: workspace:*
         version: link:../typescript-config
