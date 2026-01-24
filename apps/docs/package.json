@@ -11,6 +11,10 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@fumadocs/story": "^0.0.3",
+    "@radix-ui/react-tabs": "^1.1.13",
+    "@rime-ui/ui": "workspace:*",
+    "class-variance-authority": "^0.7.1",
     "fumadocs-core": "16.4.7",
     "fumadocs-mdx": "14.2.6",
     "fumadocs-ui": "16.4.7",
@@ -26,10 +30,10 @@
     "@types/node": "^25.0.5",
     "@types/react": "^19.2.8",
     "@types/react-dom": "^19.2.3",
+    "eslint": "^9.39.2",
+    "eslint-config-next": "16.1.1",
     "postcss": "^8.5.6",
     "tailwindcss": "^4.1.18",
-    "typescript": "^5.9.3",
-    "eslint-config-next": "16.1.1",
-    "eslint": "^9.39.2"
+    "typescript": "^5.9.3"
   }
 }

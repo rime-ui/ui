@@ -1,17 +1,33 @@
 ---
 title: Button
-description: Components
+description: A Duolingo-style button component with variants and animations
 ---
 
-## Code Block
+A button component inspired by Duolingo's design system with multiple variants, sizes, and a pressed animation effect.
 
-```js
-console.log('Hello World');
+## Installation
+
+```bash
+pnpm install @rime-ui/ui
+
+npm install @rime-ui/ui
 ```
 
-{/* ## Cards
+## Basic Usage
 
-<Cards>
-  <Card title="Learn more about Next.js" href="https://nextjs.org/docs" />
-  <Card title="Learn more about Fumadocs" href="https://fumadocs.dev" />
-</Cards> */}
+import {story} from "./stories/button.story";
+
+<story.WithControl />
+
+## API Reference
+
+### Button Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `variant` | `'primary' \| 'secondary' \| 'ghost' \| 'dangerous'` | `'primary'` | The visual style variant |
+| `size` | `'small' \| 'medium' \| 'large'` | `'medium'` | The size of the button |
+| `outline` | `boolean` | `false` | Whether to use the outline style |
+| `className` | `string` | - | Additional CSS classes |
+
+The Button component also accepts all standard HTML button attributes.

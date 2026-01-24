@@ -1,3 +1,6 @@
 @import 'tailwindcss';
+@import 'tailwindcss';
+@import '@rime-ui/ui/globals.css';
 @import 'fumadocs-ui/css/neutral.css';
 @import 'fumadocs-ui/css/preset.css';
+@import '@fumadocs/story/css/preset.css';

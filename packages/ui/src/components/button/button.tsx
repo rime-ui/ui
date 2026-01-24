@@ -1,5 +1,7 @@
+"use client";
+
 import React from "react";
-import { cnMerge, tv, VariantProps } from "tailwind-variants";
+import { tv, VariantProps } from "tailwind-variants";
 
 const button = tv({
     base: "w-60 text-center p-2 rounded-[12px] relative before:content-[''] before:absolute before:inset-0 before:z-[-1] active:translate-y-[4px] active:before:shadow-none",
@@ -44,10 +46,10 @@ const button = tv({
 
 export type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & VariantProps<typeof button>;
 
-export function Button({ className, children, variant, size, ...props }: ButtonProps & { outline?: boolean }) {
+export function Button({ className, children, variant, size, outline, ...props }: ButtonProps) {
     return (
         <button
-            className={cnMerge(className, button({ variant, size, outline: props.outline }))({ twMerge: true })}
+            className={button({ variant, size, outline, className })}
             {...props}
         >
             {children}
