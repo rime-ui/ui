@@ -10,7 +10,8 @@ const button = tv({
             primary: "bg-primary text-white before:rounded-[12px] before:shadow-primary hover:brightness-[1.1] focus-visible:outline-none",
             secondary: "bg-secondary text-gray-800 before:rounded-[12px] before:shadow-secondary hover:brightness-[0.95] focus-visible:outline-none",
             ghost: "bg-ghost text-sky-400 before:rounded-[12px] before:shadow-ghost hover:brightness-[0.9] focus-visible:outline-none border-[2px] border-ghost-dark",
-            dangerous: "bg-dangerous text-white before:rounded-[12px] before:shadow-dangerous hover:brightness-[1.1] focus-visible:outline-none"
+            dangerous: "bg-dangerous text-white before:rounded-[12px] before:shadow-dangerous hover:brightness-[1.1] focus-visible:outline-none",
+            gold: "bg-gold-gradient text-white before:content-[''] before:rounded-[12px] before:shadow-gold hover:brightness-[1.1] focus-visible:outline-none"
         },
         size: {
             small: "px-3 py-1 text-sm",
