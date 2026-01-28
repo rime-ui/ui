@@ -1,5 +1,5 @@
-import { defineStory } from '@/lib/story';
-import { Button } from '@rime-ui/ui';
+import { Button } from '@rime-ui/ui'
+import { defineStory } from '@/lib/story'
 
 export const story = defineStory(import.meta.url, {
   Component: Button,
@@ -33,4 +33,4 @@ export const story = defineStory(import.meta.url, {
       },
     },
   ],
-});
+})

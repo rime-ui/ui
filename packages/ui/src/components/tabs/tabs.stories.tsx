@@ -1,6 +1,6 @@
-import { Meta, StoryObj } from '@storybook/react-vite';
-import React from 'react';
-import { Tabs } from './tabs';
+import type { Meta, StoryObj } from '@storybook/react-vite'
+import React from 'react'
+import { Tabs } from './tabs'
 
 const meta = {
   title: 'Components/Tabs',
@@ -12,9 +12,9 @@ const meta = {
     // },
   },
   tags: ['autodocs'],
-} satisfies Meta<typeof Tabs.Root>;
+} satisfies Meta<typeof Tabs.Root>
 
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
   args: {
@@ -28,42 +28,36 @@ export const Default: Story = {
         <Tabs.Tab value="follow">Following</Tabs.Tab>
         <Tabs.Tab value="followers">Followers</Tabs.Tab>
       </Tabs.List>
-      <Tabs.Content value="follow" className=" px-4">
+      <Tabs.Content value="follow" className="px-4">
         <div className="space-y-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-blue-200 flex items-center justify-center text-xl">
-                👳‍♂️
-              </div>
+              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-blue-200 text-xl">👳‍♂️</div>
               <div className="text-start">
-                <p className="font-medium text-black dark:text-white">
-                  John Doe
-                </p>
+                <p className="font-medium text-black dark:text-white">John Doe</p>
                 <p className="text-sm text-gray-400">XP 6895</p>
               </div>
             </div>
           </div>
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-purple-200 flex items-center justify-center text-lg font-bold text-purple-800">
+              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-purple-200 text-lg font-bold text-purple-800">
                 🧕
               </div>
               <div className="text-start">
-                <p className="font-medium text-black dark:text-white">
-                  Emily Smith
-                </p>
+                <p className="font-medium text-black dark:text-white">Emily Smith</p>
                 <p className="text-sm text-gray-400">XP 1594</p>
               </div>
             </div>
           </div>
         </div>
       </Tabs.Content>
-      <Tabs.Content value="followers" className="text-white px-4">
+      <Tabs.Content value="followers" className="px-4 text-white">
         <p className="text-gray-400">No followers yet</p>
       </Tabs.Content>
     </Tabs.Root>
   ),
-};
+}
 
 export const ThreeTabs: Story = {
   args: {
@@ -78,17 +72,17 @@ export const ThreeTabs: Story = {
         <Tabs.Tab value="messages">Messages</Tabs.Tab>
         <Tabs.Tab value="settings">Settings</Tabs.Tab>
       </Tabs.List>
-      <Tabs.Content value="gallery" className="text-white px-4">
+      <Tabs.Content value="gallery" className="px-4 text-white">
         <p>Gallery tab content - Your beautiful photos here!</p>
       </Tabs.Content>
-      <Tabs.Content value="messages" className="text-white px-4">
+      <Tabs.Content value="messages" className="px-4 text-white">
         <p>Messages tab content - Your conversations here!</p>
       </Tabs.Content>
-      <Tabs.Content value="settings" className="text-white px-4">
+      <Tabs.Content value="settings" className="px-4 text-white">
         <p>Settings tab content - Configure your preferences!</p>
       </Tabs.Content>
     </Tabs.Root>
   ),
-};
+}
 
-export default meta;
+export default meta

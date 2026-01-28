@@ -1,5 +1,5 @@
-import { Meta, StoryObj } from '@storybook/react-vite';
-import { Button } from './button';
+import type { Meta, StoryObj } from '@storybook/react-vite'
+import { Button } from './button'
 
 const meta = {
   title: 'Components/Button',
@@ -18,9 +18,9 @@ const meta = {
       options: ['small', 'medium', 'large'],
     },
   },
-} satisfies Meta<typeof Button>;
+} satisfies Meta<typeof Button>
 
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<typeof meta>
 
 export const Primary: Story = {
   args: {
@@ -28,7 +28,7 @@ export const Primary: Story = {
     size: 'medium',
     children: 'Button',
   },
-};
+}
 
 export const Secondary: Story = {
   args: {
@@ -36,7 +36,7 @@ export const Secondary: Story = {
     size: 'medium',
     children: 'Button',
   },
-};
+}
 
 export const Ghost: Story = {
   args: {
@@ -45,7 +45,7 @@ export const Ghost: Story = {
     children: 'Button',
     outline: false,
   },
-};
+}
 
 export const Dangerous: Story = {
   args: {
@@ -54,7 +54,7 @@ export const Dangerous: Story = {
     children: 'Button',
     outline: false,
   },
-};
+}
 
 export const Gold: Story = {
   args: {
@@ -63,6 +63,6 @@ export const Gold: Story = {
     children: 'Button',
     outline: false,
   },
-};
+}
 
-export default meta;
+export default meta
