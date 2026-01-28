@@ -1,4 +1,4 @@
-import type React from 'react'
+import React from 'react'
 import { tv, type VariantProps } from 'tailwind-variants'
 
 const list = tv({
