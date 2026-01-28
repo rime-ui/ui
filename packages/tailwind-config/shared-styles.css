@@ -1,43 +1,43 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #58cc02;
-  --color-primary-dark: #58a700;
-  --shadow-primary: 0 4px 0 var(--color-primary-dark);
+    --color-primary: #58cc02;
+    --color-primary-dark: #58a700;
+    --shadow-primary: 0 4px 0 var(--color-primary-dark);
 
-  --color-secondary: #f3f4f6;
-  --color-secondary-dark: #b0b0b0;
-  --shadow-secondary: 0 4px 0 var(--color-secondary-dark);
+    --color-secondary: #f3f4f6;
+    --color-secondary-dark: #b0b0b0;
+    --shadow-secondary: 0 4px 0 var(--color-secondary-dark);
 
-  --color-ghost: #fff;
-  --color-ghost-dark: #e5e5e5;
-  --shadow-ghost: 0 4px 0 var(--color-ghost-dark);
+    --color-ghost: #fff;
+    --color-ghost-dark: #e5e5e5;
+    --shadow-ghost: 0 4px 0 var(--color-ghost-dark);
 
-  --color-dangerous: #e7000b;
-  --color-dangerous-dark: #b30000;
-  --shadow-dangerous: 0 4px 0 var(--color-dangerous-dark);
+    --color-dangerous: #e7000b;
+    --color-dangerous-dark: #b30000;
+    --shadow-dangerous: 0 4px 0 var(--color-dangerous-dark);
 
-  --color-gold: #ffc700;
-  --color-gold-dark: #e7a601;
-  --color-gold-shine: #ffe70080;
-  --color-gold-gradient:
-    linear-gradient(
-      -136deg,
-      transparent 10%,
-      var(--color-gold-shine) 10%,
-      var(--color-gold-shine) 40%,
-      transparent 40%,
-      transparent 53%,
-      var(--color-gold-shine) 53%,
-      var(--color-gold-shine) 71%,
-      transparent 71%
-    ),
-    var(--color-gold);
-  --shadow-gold: 0 4px 0 var(--color-gold-dark);
+    --color-gold: #ffc700;
+    --color-gold-dark: #e7a601;
+    --color-gold-shine: #ffe70080;
+    --color-gold-gradient:
+        linear-gradient(
+            -136deg,
+            transparent 10%,
+            var(--color-gold-shine) 10%,
+            var(--color-gold-shine) 40%,
+            transparent 40%,
+            transparent 53%,
+            var(--color-gold-shine) 53%,
+            var(--color-gold-shine) 71%,
+            transparent 71%
+        ),
+        var(--color-gold);
+    --shadow-gold: 0 4px 0 var(--color-gold-dark);
 }
 
 @layer utilities {
-  .bg-gold-gradient {
-    background: var(--color-gold-gradient);
-  }
+    .bg-gold-gradient {
+        background: var(--color-gold-gradient);
+    }
 }

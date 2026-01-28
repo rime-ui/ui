@@ -1,0 +1,5 @@
+echo "[husky] pre-commit checks starting..."
+
+pnpm format
+
+echo "[husky] pre-commit checks passed"

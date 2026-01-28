@@ -2,67 +2,67 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 import { Button } from './button'
 
 const meta = {
-  title: 'Components/Button',
-  component: Button,
-  parameters: {
-    layout: 'centered',
-  },
-  tags: ['autodocs'],
-  argTypes: {
-    variant: {
-      control: 'select',
-      options: ['primary', 'secondary', 'ghost', 'dangerous', 'gold'],
+    title: 'Components/Button',
+    component: Button,
+    parameters: {
+        layout: 'centered',
     },
-    size: {
-      control: 'select',
-      options: ['small', 'medium', 'large'],
+    tags: ['autodocs'],
+    argTypes: {
+        variant: {
+            control: 'select',
+            options: ['primary', 'secondary', 'ghost', 'dangerous', 'gold'],
+        },
+        size: {
+            control: 'select',
+            options: ['small', 'medium', 'large'],
+        },
     },
-  },
 } satisfies Meta<typeof Button>
 
 type Story = StoryObj<typeof meta>
 
 export const Primary: Story = {
-  args: {
-    variant: 'primary',
-    size: 'medium',
-    children: 'Button',
-  },
+    args: {
+        variant: 'primary',
+        size: 'medium',
+        children: 'Button',
+    },
 }
 
 export const Secondary: Story = {
-  args: {
-    variant: 'secondary',
-    size: 'medium',
-    children: 'Button',
-  },
+    args: {
+        variant: 'secondary',
+        size: 'medium',
+        children: 'Button',
+    },
 }
 
 export const Ghost: Story = {
-  args: {
-    variant: 'ghost',
-    size: 'medium',
-    children: 'Button',
-    outline: false,
-  },
+    args: {
+        variant: 'ghost',
+        size: 'medium',
+        children: 'Button',
+        outline: false,
+    },
 }
 
 export const Dangerous: Story = {
-  args: {
-    variant: 'dangerous',
-    size: 'medium',
-    children: 'Button',
-    outline: false,
-  },
+    args: {
+        variant: 'dangerous',
+        size: 'medium',
+        children: 'Button',
+        outline: false,
+    },
 }
 
 export const Gold: Story = {
-  args: {
-    variant: 'gold',
-    size: 'medium',
-    children: 'Button',
-    outline: false,
-  },
+    args: {
+        variant: 'gold',
+        size: 'medium',
+        children: 'Button',
+        outline: false,
+    },
 }
 
 export default meta
