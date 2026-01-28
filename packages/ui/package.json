@@ -1,49 +1,50 @@
 {
-  "name": "@rime-ui/ui",
-  "version": "0.0.0",
-  "private": true,
-  "exports": {
-    ".": "./src/index.ts",
-    "./globals.css": "./globals.css",
-    "./*": "./src/*"
-  },
-  "scripts": {
-    "lint": "eslint . --max-warnings 0",
-    "generate:component": "turbo gen react-component",
-    "check-types": "tsc --noEmit",
-    "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
-  },
-  "devDependencies": {
-    "@rime-ui/tailwind-config": "workspace:*",
-    "@rime-ui/eslint-config": "workspace:*",
-    "@rime-ui/typescript-config": "workspace:*",
-    "@storybook/addon-a11y": "^10.2.0",
-    "@storybook/addon-docs": "^10.2.0",
-    "@storybook/addon-essentials": "^8.6.14",
-    "@storybook/addon-onboarding": "^10.2.0",
-    "@storybook/addon-vitest": "^10.2.0",
-    "@storybook/react": "^10.2.0",
-    "@storybook/react-vite": "^10.2.0",
-    "@storybook/test": "^8.6.15",
-    "@types/node": "^22.15.3",
-    "@types/react": "19.2.2",
-    "@types/react-dom": "19.2.2",
-    "@vitest/browser-playwright": "^4.0.18",
-    "@vitest/coverage-v8": "^4.0.18",
-    "eslint": "^9.39.1",
-    "eslint-plugin-storybook": "^10.2.0",
-    "playwright": "^1.58.0",
-    "storybook": "^10.2.0",
-    "typescript": "5.9.2",
-    "vitest": "^4.0.18"
-  },
-  "dependencies": {
-    "@tailwindcss/postcss": "^4.1.18",
-    "postcss": "^8.5.6",
-    "react": "^19.2.0",
-    "react-dom": "^19.2.0",
-    "tailwind-variants": "^3.2.2",
-    "tailwindcss": "^4.1.18"
-  }
+    "name": "@rime-ui/ui",
+    "version": "0.0.0",
+    "private": true,
+    "exports": {
+        ".": "./src/index.ts",
+        "./globals.css": "./globals.css",
+        "./*": "./src/*"
+    },
+    "scripts": {
+        "lint": "eslint . --max-warnings 0",
+        "generate:component": "turbo gen react-component",
+        "check-types": "tsc --noEmit",
+        "storybook": "storybook dev -p 6006",
+        "build-storybook": "storybook build"
+    },
+    "devDependencies": {
+        "@rime-ui/eslint-config": "workspace:*",
+        "@rime-ui/tailwind-config": "workspace:*",
+        "@rime-ui/typescript-config": "workspace:*",
+        "@storybook/addon-a11y": "^10.2.0",
+        "@storybook/addon-docs": "^10.2.0",
+        "@storybook/addon-essentials": "^8.6.14",
+        "@storybook/addon-onboarding": "^10.2.0",
+        "@storybook/addon-vitest": "^10.2.0",
+        "@storybook/react": "^10.2.0",
+        "@storybook/react-vite": "^10.2.0",
+        "@storybook/test": "^8.6.15",
+        "@types/node": "^22.15.3",
+        "@types/react": "19.2.2",
+        "@types/react-dom": "19.2.2",
+        "@vitest/browser-playwright": "^4.0.18",
+        "@vitest/coverage-v8": "^4.0.18",
+        "eslint": "^9.39.1",
+        "eslint-plugin-storybook": "^10.2.0",
+        "playwright": "^1.58.0",
+        "storybook": "^10.2.0",
+        "typescript": "5.9.2",
+        "vitest": "^4.0.18"
+    },
+    "dependencies": {
+        "@chromatic-com/storybook": "^5.0.0",
+        "@tailwindcss/postcss": "^4.1.18",
+        "postcss": "^8.5.6",
+        "react": "^19.2.0",
+        "react-dom": "^19.2.0",
+        "tailwind-variants": "^3.2.2",
+        "tailwindcss": "^4.1.18"
+    }
 }

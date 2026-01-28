@@ -120,7 +120,7 @@
   "overrides": [
     {
       "formatter": {
-        "indentWidth": 2
+        "indentWidth": 4
       },
       "includes": ["**/*.json"]
     }
