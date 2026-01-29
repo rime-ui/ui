@@ -34,6 +34,8 @@
         ),
         var(--color-gold);
     --shadow-gold: 0 4px 0 var(--color-gold-dark);
+
+    --color-badge-purple: ;
 }
 
 @layer utilities {
