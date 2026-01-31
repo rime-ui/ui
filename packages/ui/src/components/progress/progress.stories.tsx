@@ -31,7 +31,6 @@ const meta = {
             control: 'boolean',
             description: 'Show striped pattern',
         },
-    
     },
     decorators: [
         (Story) => (
@@ -125,8 +124,6 @@ export const Striped: Story = {
     },
 }
 
-
-
 export const Empty: Story = {
     args: {
         value: 0,
@@ -192,15 +189,11 @@ export const Responsive: Story = {
             </div>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1rem' }}>
                 <div>
-                    <p style={{ marginBottom: '0.5rem', fontSize: '0.875rem', color: '#666' }}>
-                        Downloads
-                    </p>
+                    <p style={{ marginBottom: '0.5rem', fontSize: '0.875rem', color: '#666' }}>Downloads</p>
                     <Progress value={45} variant="primary" size="small" />
                 </div>
                 <div>
-                    <p style={{ marginBottom: '0.5rem', fontSize: '0.875rem', color: '#666' }}>
-                        Uploads
-                    </p>
+                    <p style={{ marginBottom: '0.5rem', fontSize: '0.875rem', color: '#666' }}>Uploads</p>
                     <Progress value={80} variant="gold" size="small" />
                 </div>
             </div>

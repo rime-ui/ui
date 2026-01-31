@@ -37,7 +37,6 @@ const progressBar = tv({
         striped: {
             true: 'bg-[length:1rem_1rem] bg-[linear-gradient(45deg,rgba(255,255,255,0.15)_25%,transparent_25%,transparent_50%,rgba(255,255,255,0.15)_50%,rgba(255,255,255,0.15)_75%,transparent_75%,transparent)]',
         },
-
     },
     compoundVariants: [
         {
@@ -78,8 +77,7 @@ export function Progress({
             aria-valuemin={0}
             aria-valuemax={max}
             className={progressTrack({ size, variant, className })}
-            {...props}
-        >
+            {...props}>
             <div
                 className={progressBar({
                     variant,
