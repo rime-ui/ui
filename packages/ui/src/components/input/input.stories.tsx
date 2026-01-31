@@ -207,7 +207,7 @@ export const FullIconsLTR: Story = {
 
 export const SearchComposition: Story = {
     render: () => (
-        <InputComposition.Root className="w-[300px]" isClearable>
+        <InputComposition.Root className="w-75" isClearable>
             <InputComposition.Label>Search</InputComposition.Label>
             <InputComposition.Group>
                 <InputComposition.Slot side="start">
@@ -231,7 +231,7 @@ export const SearchComposition: Story = {
 
 export const NewsletterComposition: Story = {
     render: () => (
-        <InputComposition.Root size="large" className="w-[350px]" isClearable>
+        <InputComposition.Root size="large" className="w-87.5" isClearable>
             <InputComposition.Label>Newsletter</InputComposition.Label>
             <InputComposition.Group>
                 <InputComposition.Slot side="start">
