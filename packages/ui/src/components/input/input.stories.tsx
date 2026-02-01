@@ -226,83 +226,12 @@ export const EmailField: Story = {
     },
 }
 
-<<<<<<< Updated upstream
-export const SearchComposition: Story = {
-    render: () => (
-        <InputComposition.Root className="w-[300px]" isClearable>
-            <InputComposition.Label>Search</InputComposition.Label>
-            <InputComposition.Group>
-                <InputComposition.Slot side="start">
-                    <SearchIcon />
-                </InputComposition.Slot>
-
-                <InputComposition.Field placeholder="Search documentation..." />
-
-                <InputComposition.Slot side="end">
-                    <div className="flex items-center gap-1">
-                        <kbd className="hidden sm:inline-block rounded border bg-gray-100 px-1.5 text-[10px] font-bold text-gray-500 dark:bg-gray-800 dark:border-gray-700">
-                            ⌘K
-                        </kbd>
-                    </div>
-                </InputComposition.Slot>
-            </InputComposition.Group>
-            <InputComposition.Helper>Press Cmd+K to quick search</InputComposition.Helper>
-        </InputComposition.Root>
-    ),
-}
-
-export const NewsletterComposition: Story = {
-    render: () => (
-        <InputComposition.Root size="large" className="w-[350px]" isClearable>
-            <InputComposition.Label>Newsletter</InputComposition.Label>
-            <InputComposition.Group>
-                <InputComposition.Slot side="start">
-                    <MessageIcon />
-                </InputComposition.Slot>
-
-                <InputComposition.Field className="pe-28!" placeholder="Enter your email" type="email" />
-
-                <InputComposition.Slot side="end">
-                    <button className="bg-sky-500 hover:bg-sky-600 text-white text-sm font-bold px-3 py-1.5 rounded-lg transition-colors mr-1">
-                        Subscribe
-                    </button>
-                </InputComposition.Slot>
-            </InputComposition.Group>
-        </InputComposition.Root>
-    ),
-}
-
-export const CopyableField: Story = {
-    render: () => {
-        const apiKey = 'sk_live_51Hz...'
-        return (
-            <InputComposition.Root isClearable={false}>
-                <InputComposition.Label>API Key</InputComposition.Label>
-                <InputComposition.Group>
-                    <InputComposition.Field
-                        defaultValue={apiKey}
-                        readOnly
-                        className="font-mono text-sm text-gray-500"
-                    />
-                    <InputComposition.Slot side="end">
-                        <button
-                            title="Copy"
-                            className="p-1.5 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-md transition-colors text-gray-500"
-                            onClick={() => navigator.clipboard.writeText(apiKey)}>
-                            <CopyIcon />
-                        </button>
-                    </InputComposition.Slot>
-                </InputComposition.Group>
-            </InputComposition.Root>
-        )
-=======
 export const WithError: Story = {
     args: {
         label: 'Email',
         placeholder: 'you@example.com',
         error: 'Please enter a valid email address',
         leftIcon: <MessageIcon />,
->>>>>>> Stashed changes
     },
 }
 
@@ -329,12 +258,7 @@ export const Sizes: Story = {
     render: () => (
         <div className="flex flex-col gap-4 w-80">
             <Input label="Small" placeholder="Small input" size="small" leftIcon={<SearchIcon />} />
-            <Input
-                label="Medium"
-                placeholder="Medium input"
-                size="medium"
-                leftIcon={<SearchIcon />}
-            />
+            <Input label="Medium" placeholder="Medium input" size="medium" leftIcon={<SearchIcon />} />
             <Input label="Large" placeholder="Large input" size="large" leftIcon={<SearchIcon />} />
         </div>
     ),

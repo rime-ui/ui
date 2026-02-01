@@ -75,22 +75,7 @@ export type InputProps = Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size
     }
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
-    (
-        {
-            label,
-            error,
-            helperText,
-            variant,
-            size,
-            leftIcon,
-            rightIcon,
-            className,
-            dir,
-            id,
-            ...props
-        },
-        ref,
-    ) => {
+    ({ label, error, helperText, variant, size, leftIcon, rightIcon, className, dir, id, ...props }, ref) => {
         const inputId = React.useId()
         const finalId = id || inputId
         const isError = !!error
@@ -114,22 +99,12 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
 
                 <div className={styles.inputWrapper()}>
                     {leftIcon && (
-                        <span className={`${styles.iconWrapper()} start-3 pointer-events-none`}>
-                            {leftIcon}
-                        </span>
+                        <span className={`${styles.iconWrapper()} start-3 pointer-events-none`}>{leftIcon}</span>
                     )}
 
-                    <input
-                        ref={ref}
-                        id={finalId}
-                        aria-invalid={isError}
-                        className={styles.input()}
-                        {...props}
-                    />
+                    <input ref={ref} id={finalId} aria-invalid={isError} className={styles.input()} {...props} />
 
-                    {rightIcon && (
-                        <span className={`${styles.iconWrapper()} end-3`}>{rightIcon}</span>
-                    )}
+                    {rightIcon && <span className={`${styles.iconWrapper()} end-3`}>{rightIcon}</span>}
                 </div>
 
                 {finalHelperText && <p className={styles.helperText()}>{finalHelperText}</p>}
