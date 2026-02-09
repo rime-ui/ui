@@ -109,9 +109,7 @@ export function Input({
             )}
 
             <div className={styles.inputWrapper()}>
-                {leftIcon && (
-                    <span className={`${styles.iconWrapper()} start-3 pointer-events-none`}>{leftIcon}</span>
-                )}
+                {leftIcon && <span className={`${styles.iconWrapper()} start-3 pointer-events-none`}>{leftIcon}</span>}
 
                 <input id={finalId} aria-invalid={isError} className={styles.input()} {...props} />
 
