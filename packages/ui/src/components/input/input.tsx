@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ComponentPropsWithRef } from 'react'
 import { tv, type VariantProps } from 'tailwind-variants'
 
 const inputStyles = tv({
@@ -65,7 +65,7 @@ const inputStyles = tv({
 
 export type InputVariants = VariantProps<typeof inputStyles>
 
-export type InputProps = Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size'> &
+export type InputProps = Omit<ComponentPropsWithRef<'input'>, 'size'> &
     InputVariants & {
         label?: string
         helperText?: string
@@ -74,45 +74,51 @@ export type InputProps = Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size
         rightIcon?: React.ReactNode
     }
 
-const Input = React.forwardRef<HTMLInputElement, InputProps>(
-    ({ label, error, helperText, variant, size, leftIcon, rightIcon, className, dir, id, ...props }, ref) => {
-        const inputId = React.useId()
-        const finalId = id || inputId
-        const isError = !!error
-        const finalHelperText = error || helperText
-        const finalVariant = isError ? 'error' : variant
+export function Input({
+    label,
+    error,
+    helperText,
+    variant,
+    size,
+    leftIcon,
+    rightIcon,
+    className,
+    dir,
+    id,
+    ...props
+}: InputProps) {
+    const inputId = React.useId()
+    const finalId = id || inputId
+    const isError = !!error
+    const finalHelperText = error || helperText
+    const finalVariant = isError ? 'error' : variant
 
-        const styles = inputStyles({
-            variant: finalVariant,
-            size,
-            hasLeftIcon: !!leftIcon,
-            hasRightIcon: !!rightIcon,
-        })
+    const styles = inputStyles({
+        variant: finalVariant,
+        size,
+        hasLeftIcon: !!leftIcon,
+        hasRightIcon: !!rightIcon,
+    })
 
-        return (
-            <div dir={dir} className={styles.base({ className })}>
-                {label && (
-                    <label htmlFor={finalId} className={styles.label()}>
-                        {label}
-                    </label>
+    return (
+        <div dir={dir} className={styles.base({ className })}>
+            {label && (
+                <label htmlFor={finalId} className={styles.label()}>
+                    {label}
+                </label>
+            )}
+
+            <div className={styles.inputWrapper()}>
+                {leftIcon && (
+                    <span className={`${styles.iconWrapper()} start-3 pointer-events-none`}>{leftIcon}</span>
                 )}
 
-                <div className={styles.inputWrapper()}>
-                    {leftIcon && (
-                        <span className={`${styles.iconWrapper()} start-3 pointer-events-none`}>{leftIcon}</span>
-                    )}
+                <input id={finalId} aria-invalid={isError} className={styles.input()} {...props} />
 
-                    <input ref={ref} id={finalId} aria-invalid={isError} className={styles.input()} {...props} />
-
-                    {rightIcon && <span className={`${styles.iconWrapper()} end-3`}>{rightIcon}</span>}
-                </div>
-
-                {finalHelperText && <p className={styles.helperText()}>{finalHelperText}</p>}
+                {rightIcon && <span className={`${styles.iconWrapper()} end-3`}>{rightIcon}</span>}
             </div>
-        )
-    },
-)
 
-Input.displayName = 'Input'
-
-export default Input
+            {finalHelperText && <p className={styles.helperText()}>{finalHelperText}</p>}
+        </div>
+    )
+}
