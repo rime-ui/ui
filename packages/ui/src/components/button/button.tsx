@@ -2,7 +2,7 @@ import React from 'react'
 import { tv, type VariantProps } from 'tailwind-variants'
 
 const button = tv({
-    base: "w-60 text-center p-2 rounded-[12px] before:rounded-[12px] relative before:content-[''] before:absolute before:inset-0 before:z-[-1] active:translate-y-[4px] active:before:shadow-none",
+    base: "w-60 z-0 text-center p-2 rounded-[12px] before:rounded-[12px] relative before:content-[''] before:absolute before:inset-0 before:z-10 active:translate-y-[4px] active:before:shadow-none",
     variants: {
         variant: {
             primary: 'bg-primary text-white  before:shadow-primary hover:brightness-[1.1] focus-visible:outline-none',
