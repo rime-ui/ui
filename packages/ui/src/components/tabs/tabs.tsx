@@ -3,6 +3,8 @@ import { TabsList } from './tabs-list/tabs-list'
 import { TabsRoot } from './tabs-root/tabs-root'
 import { TabsTab } from './tabs-tab/tabs-tab'
 
+export { TabsRoot, TabsList, TabsTab, TabsContent }
+
 export const Tabs = {
     Root: TabsRoot,
     List: TabsList,
