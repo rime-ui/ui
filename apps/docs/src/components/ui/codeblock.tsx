@@ -1,7 +1,12 @@
 'use client'
 import { useCopyButton } from 'fumadocs-ui/utils/use-copy-button'
+import { highlight } from 'fumadocs-core/highlight'
+import prettier from 'prettier/standalone'
+import parserBabel from 'prettier/plugins/babel'
+import parserTypescript from 'prettier/plugins/typescript'
+import parserEstree from 'prettier/plugins/estree'
 import { Check, Clipboard } from 'lucide-react'
-import {
+import React, {
     type ComponentProps,
     createContext,
     type HTMLAttributes,
@@ -11,10 +16,10 @@ import {
     useMemo,
     useRef,
 } from 'react'
-import { cn } from '../lib/cn'
-import { mergeRefs } from '../lib/merge-refs'
-import { buttonVariants } from './ui/button'
-import { Tabs, TabsContent, TabsList, TabsTrigger } from './ui/tabs'
+import { cn } from '../../lib/cn'
+import { mergeRefs } from '../../lib/merge-refs'
+import { buttonVariants } from './button'
+import { Tabs, TabsContent, TabsList, TabsTrigger } from './tabs'
 
 export interface CodeBlockProps extends ComponentProps<'figure'> {
     /**
@@ -51,6 +56,8 @@ export interface CodeBlockProps extends ComponentProps<'figure'> {
     'data-line-numbers-start'?: number
 
     Actions?: (props: { className?: string; children?: ReactNode }) => ReactNode
+    code?: string
+    language?: string
 }
 
 const TabsContext = createContext<{
@@ -73,12 +80,64 @@ export function CodeBlock({
     keepBackground = false,
     icon,
     viewportProps = {},
+    code,
+    language = 'tsx',
     children,
     Actions = (props) => <div {...props} className={cn('empty:hidden', props.className)} />,
     ...props
 }: CodeBlockProps) {
     const inTab = use(TabsContext) !== null
     const areaRef = useRef<HTMLDivElement>(null)
+    const [highlighted, setHighlighted] = React.useState<ReactNode>(null)
+
+    React.useEffect(() => {
+        let mounted = true
+
+        async function run() {
+            if (!code) return
+
+            let formatted = code
+
+            try {
+                if (language === 'ts' || language === 'tsx') {
+                    formatted = await prettier.format(code, {
+                        parser: 'typescript',
+                        plugins: [parserTypescript, parserEstree],
+                    })
+                }
+
+                if (language === 'js' || language === 'jsx') {
+                    formatted = await prettier.format(code, {
+                        parser: 'babel',
+                        plugins: [parserBabel, parserEstree],
+                    })
+                }
+            } catch (e) {
+                console.warn('Prettier failed, using raw code')
+            }
+
+            const result = await highlight(formatted, {
+                lang: language,
+                themes: {
+                    light: 'github-light',
+                    dark: 'github-dark',
+                },
+                components: {
+                    pre: (props) => <Pre {...props} />,
+                },
+            })
+
+            if (mounted) {
+                setHighlighted(result)
+            }
+        }
+
+        run()
+
+        return () => {
+            mounted = false
+        }
+    }, [code, language])
 
     return (
         <figure
@@ -123,7 +182,7 @@ export function CodeBlock({
                 role="region"
                 tabIndex={0}
                 className={cn(
-                    'fd-scroll-container focus-visible:ring-fd-ring max-h-150 overflow-auto py-3.5 text-[0.8125rem] focus-visible:ring-2 focus-visible:outline-none focus-visible:ring-inset',
+                    'fd-scroll-container focus-visible:ring-fd-ring max-h-150 overflow-auto py-3.5 px-3 lg:px-5 text-[0.8125rem] focus-visible:ring-2 focus-visible:outline-none focus-visible:ring-inset',
                     viewportProps.className,
                 )}
                 style={
@@ -136,7 +195,7 @@ export function CodeBlock({
                         ...viewportProps.style,
                     } as object
                 }>
-                {children}
+                {children ?? highlighted ?? <div className="opacity-50">Loading...</div>}
             </div>
         </figure>
     )
@@ -189,7 +248,7 @@ export function CodeBlockTabs({ ref, ...props }: ComponentProps<typeof Tabs>) {
             ref={mergeRefs(containerRef, ref)}
             {...props}
             className={cn('bg-fd-card rounded-xl border', !nested && 'my-4', props.className)}>
-            <TabsContext
+            <TabsContext.Provider
                 value={useMemo(
                     () => ({
                         containerRef,
@@ -198,7 +257,7 @@ export function CodeBlockTabs({ ref, ...props }: ComponentProps<typeof Tabs>) {
                     [nested],
                 )}>
                 {props.children}
-            </TabsContext>
+            </TabsContext.Provider>
         </Tabs>
     )
 }
