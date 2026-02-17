@@ -1,0 +1,174 @@
+---
+title: Progress
+description: Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.
+---
+
+import { Progress } from "@rime-ui/ui"
+import { ComponentPreview } from "@/components/ui/component-preview"
+import { CodeBlock } from "@/components/ui/codeblock"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+
+---
+
+## Installation
+
+<Tabs defaultValue="npm" className="w-full mt-6">
+  <TabsList>
+    <TabsTrigger value="npm">npm</TabsTrigger>
+    <TabsTrigger value="pnpm">pnpm</TabsTrigger>
+    <TabsTrigger value="yarn">yarn</TabsTrigger>
+  </TabsList>
+
+  <TabsContent value="npm" className="mt-4">
+    <CodeBlock language="bash" code={`npm add @rime-ui/ui`} />
+  </TabsContent>
+
+  <TabsContent value="pnpm" className="mt-4">
+    <CodeBlock language="bash" code={`pnpm install @rime-ui/ui`} />
+  </TabsContent>
+
+  <TabsContent value="yarn" className="mt-4">
+    <CodeBlock language="bash" code={`yarn install @rime-ui/ui`} />
+  </TabsContent>
+</Tabs>
+
+---
+
+## Usage
+
+<CodeBlock
+  language="tsx"
+  code={`import { Progress } from "@rime-ui/ui"
+
+export function Example() {
+  return <Progress value={60} />
+}`}
+/>
+
+---
+
+## Default
+
+<ComponentPreview
+  preview={
+    <div className="w-full max-w-md p-4">
+      <Progress value={60} />
+    </div>
+  }
+  code={`<Progress value={60} />`}
+/>
+
+---
+
+## Variants
+
+The progress bar comes in different colors to represent different states or themes.
+
+<ComponentPreview
+  preview={
+    <div className="flex flex-col gap-6 w-full max-w-md p-4">
+      <div className="space-y-2">
+        <span className="text-sm text-gray-500">Primary</span>
+        <Progress value={70} variant="primary" />
+      </div>
+      <div className="space-y-2">
+        <span className="text-sm text-gray-500">Secondary</span>
+        <Progress value={70} variant="secondary" />
+      </div>
+      <div className="space-y-2">
+        <span className="text-sm text-gray-500">Ghost</span>
+        <Progress value={70} variant="ghost" />
+      </div>
+      <div className="space-y-2">
+        <span className="text-sm text-gray-500">Dangerous</span>
+        <Progress value={70} variant="dangerous" />
+      </div>
+      <div className="space-y-2">
+        <span className="text-sm text-gray-500">Gold</span>
+        <Progress value={70} variant="gold" />
+      </div>
+    </div>
+  }
+  code={`<Progress value={70} variant="primary" />
+<Progress value={70} variant="secondary" />
+<Progress value={70} variant="ghost" />
+<Progress value={70} variant="dangerous" />
+<Progress value={70} variant="gold" />`}
+/>
+
+---
+
+## Sizes
+
+Three sizes are available: `small`, `medium` (default), and `large`.
+
+<ComponentPreview
+  preview={
+    <div className="flex flex-col gap-6 w-full max-w-md p-4">
+      <div className="space-y-2">
+        <span className="text-sm text-gray-500">Small</span>
+        <Progress value={50} size="small" />
+      </div>
+      <div className="space-y-2">
+        <span className="text-sm text-gray-500">Medium</span>
+        <Progress value={50} size="medium" />
+      </div>
+      <div className="space-y-2">
+        <span className="text-sm text-gray-500">Large</span>
+        <Progress value={50} size="large" />
+      </div>
+    </div>
+  }
+  code={`<Progress value={50} size="small" />
+<Progress value={50} size="medium" />
+<Progress value={50} size="large" />`}
+/>
+
+---
+
+## Striped
+
+You can add a striped animation pattern to the progress bar.
+
+<ComponentPreview
+  preview={
+    <div className="w-full max-w-md p-4">
+      <Progress value={80} striped variant="primary" size="large" />
+    </div>
+  }
+  code={`<Progress value={80} striped size="large" />`}
+/>
+
+---
+
+## Custom Max Value
+
+By default, the max value is 100. You can change this to represent different scales (e.g., steps in a form).
+
+<ComponentPreview
+  preview={
+    <div className="w-full max-w-md p-4 space-y-2">
+       <span className="text-sm text-gray-500">Step 2 of 5</span>
+       <Progress value={2} max={5} variant="gold" />
+    </div>
+  }
+  code={`<Progress value={2} max={5} variant="gold" />`}
+/>
+
+---
+
+## API Reference
+
+### Props
+
+| Prop           | Type                                                           | Default     | Description                                |
+| -------------- | -------------------------------------------------------------- | ----------- | ------------------------------------------ |
+| `value`        | `number`                                                       | `0`         | The current progress value.                |
+| `max`          | `number`                                                       | `100`       | The maximum progress value.                |
+| `variant`      | `'primary' \| 'secondary' \| 'ghost' \| 'dangerous' \| 'gold'` | `'primary'` | The visual style of the progress bar.      |
+| `size`         | `'small' \| 'medium' \| 'large'`                               | `'medium'`  | The height/thickness of the bar.           |
+| `striped`      | `boolean`                                                      | `false`     | Shows an animated striped pattern.         |
+| `className`    | `string`                                                       | —           | Class name for the outer track container.  |
+| `barClassName` | `string`                                                       | —           | Class name for the inner progress indicator.|
+
+The `Progress` component also accepts all standard `div` HTML attributes.
