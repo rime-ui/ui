@@ -50,6 +50,9 @@ importers:
       next:
         specifier: 16.1.1
         version: 16.1.1(@babel/core@7.28.6)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
+      prettier:
+        specifier: ^3.8.1
+        version: 3.8.1
       react:
         specifier: ^19.2.3
         version: 19.2.3
@@ -2227,6 +2230,7 @@ packages:
 
   baseline-browser-mapping@2.9.11:
     resolution: {integrity: sha512-Sg0xJUNDU1sJNGdfGWhVHX0kkZ+HWcvmVymJbj6NSgZZmW/8S9Y2HQ5euytnIgakgxN6papOAWiwDo1ctFDcoQ==}
+    hasBin: true
 
   brace-expansion@1.1.12:
     resolution: {integrity: sha512-9T9UjW3r0UW5c1Q7GTwllptXwhvYmEzFhzMfZ9H7FQWt+uZePjZPjBP/W1ZEyZ1twGWom5/56TF4lPcqjnDHcg==}
@@ -8752,8 +8756,7 @@ snapshots:
 
   prelude-ls@1.2.1: {}
 
-  prettier@3.8.1:
-    optional: true
+  prettier@3.8.1: {}
 
   pretty-format@27.5.1:
     dependencies:
