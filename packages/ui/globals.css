@@ -1,2 +1,3 @@
 @import "tailwindcss";
+@source "./src/**/*.{ts,tsx}";
 @import "@rime-ui/tailwind-config/shared-styles.css";

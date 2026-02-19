@@ -3,31 +3,167 @@ title: Button
 description: A Duolingo-style button component with variants and animations
 ---
 
-A button component inspired by Duolingo's design system with multiple variants, sizes, and a pressed animation effect.
+import { Button } from "@rime-ui/ui"
+import { ComponentPreview } from "@/components/ui/component-preview"
+import { CodeBlock } from "@/components/ui/codeblock"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
 ## Installation
 
-```bash
-pnpm install @rime-ui/ui
+<Tabs defaultValue="npm" className="w-full mt-6">
+  <TabsList>
+    <TabsTrigger value="npm">npm</TabsTrigger>
+    <TabsTrigger value="pnpm">pnpm</TabsTrigger>
+    <TabsTrigger value="yarn">yarn</TabsTrigger>
+  </TabsList>
 
-npm install @rime-ui/ui
-```
+  <TabsContent
+    value="npm"
+    className="mt-4"
+  >
+    <CodeBlock
+      language="bash"
+      code={`npm add @rime-ui/ui`}
+    />
+  </TabsContent>
 
-## Basic Usage
+  <TabsContent value="pnpm" className="mt-4">
+    <CodeBlock
+      language="bash"
+      code={`pnpm install @rime-ui/ui`}
+    />
+  </TabsContent>
 
-import {story} from "./stories/button.story";
+  <TabsContent value="yarn" className="mt-4">
+    <CodeBlock
+      language="bash"
+      code={`yarn install @rime-ui/ui`}
+    />
+  </TabsContent>
+</Tabs>
 
-<story.WithControl />
+---
+
+## Usage
+
+<CodeBlock
+  language="tsx"
+  code={`import { Button } from "@rime-ui/ui"
+
+export function Example() {
+  return <Button>Continue</Button>
+}`}
+/>
+
+---
+
+## Default
+
+<ComponentPreview
+  preview={<Button>Continue</Button>}
+  code={`<Button>Continue</Button>`}
+/>
+
+---
+
+## Variants
+
+<ComponentPreview
+  preview={
+    <div className="flex flex-wrap gap-4 justify-center">
+      <Button variant="primary">Primary</Button>
+      <Button variant="secondary">Secondary</Button>
+      <Button variant="ghost">Ghost</Button>
+      <Button variant="dangerous">Dangerous</Button>
+      <Button variant="gold">Gold</Button>
+    </div>
+  }
+  code={`<Button variant="primary">Primary</Button>
+<Button variant="secondary">Secondary</Button>
+<Button variant="ghost">Ghost</Button>
+<Button variant="dangerous">Dangerous</Button>
+<Button variant="gold">Gold</Button>`}
+/>
+
+---
+
+## Sizes
+
+<ComponentPreview
+  preview={
+    <div className="flex flex-wrap gap-4 items-center justify-center">
+      <Button size="small">Small</Button>
+      <Button size="medium">Medium</Button>
+      <Button size="large">Large</Button>
+    </div>
+  }
+  code={`<Button size="small">Small</Button>
+<Button size="medium">Medium</Button>
+<Button size="large">Large</Button>`}
+/>
+
+---
+
+## Outline
+
+<ComponentPreview
+  preview={
+    <div className="flex flex-wrap gap-4 justify-center">
+      <Button variant="primary" outline>
+        Primary
+      </Button>
+      <Button variant="secondary" outline>
+        Secondary
+      </Button>
+      <Button variant="dangerous" outline>
+        Dangerous
+      </Button>
+    </div>
+  }
+  code={`<Button variant="primary" outline>
+  Primary
+</Button>
+
+<Button variant="secondary" outline>
+  Secondary
+</Button>
+
+<Button variant="dangerous" outline>
+  Dangerous
+</Button>`}
+/>
+
+---
+
+## Disabled
+
+<ComponentPreview
+  preview={
+    <div className="flex flex-wrap gap-4 justify-center">
+      <Button disabled>Primary</Button>
+      <Button variant="secondary" disabled>
+        Secondary
+      </Button>
+    </div>
+  }
+  code={`<Button disabled>Primary</Button>
+
+<Button variant="secondary" disabled>
+  Secondary
+</Button>`}
+/>
+
+---
 
 ## API Reference
 
-### Button Props
+### Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `variant` | `'primary' \| 'secondary' \| 'ghost' \| 'dangerous'` | `'primary'` | The visual style variant |
-| `size` | `'small' \| 'medium' \| 'large'` | `'medium'` | The size of the button |
-| `outline` | `boolean` | `false` | Whether to use the outline style |
-| `className` | `string` | - | Additional CSS classes |
+| Prop        | Type                                                                 | Default     |
+| ----------- | -------------------------------------------------------------------- | ----------- |
+| `variant`   | `'primary' \| 'secondary' \| 'ghost' \| 'dangerous' \| 'gold'`       | `'primary'` |
+| `size`      | `'small' \| 'medium' \| 'large'`                                     | `'medium'`  |
+| `outline`   | `boolean`                                                            | `false`     |
+| `className` | `string`                                                             | —           |
 
-The Button component also accepts all standard HTML button attributes.
+The `Button` component also accepts all standard `button` HTML attributes.

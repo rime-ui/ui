@@ -1,0 +1,101 @@
+---
+title: Badge
+description: A Duolingo-style badge component for displaying status, achievements, or counts.
+---
+
+import { Badge } from "@rime-ui/ui"
+import { ComponentPreview } from "@/components/ui/component-preview"
+import { CodeBlock } from "@/components/ui/codeblock"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+
+
+## Installation
+
+<Tabs defaultValue="npm" className="w-full mt-6">
+  <TabsList>
+    <TabsTrigger value="npm">npm</TabsTrigger>
+    <TabsTrigger value="pnpm">pnpm</TabsTrigger>
+    <TabsTrigger value="yarn">yarn</TabsTrigger>
+  </TabsList>
+
+  <TabsContent
+    value="npm"
+    className="mt-4"
+  >
+    <CodeBlock
+      language="bash"
+      code={`npm add @rime-ui/ui`}
+    />
+  </TabsContent>
+
+  <TabsContent value="pnpm" className="mt-4">
+    <CodeBlock
+      language="bash"
+      code={`pnpm install @rime-ui/ui`}
+    />
+  </TabsContent>
+
+  <TabsContent value="yarn" className="mt-4">
+    <CodeBlock
+      language="bash"
+      code={`yarn install @rime-ui/ui`}
+    />
+  </TabsContent>
+</Tabs>
+
+---
+
+## Usage
+
+<CodeBlock
+  language="tsx"
+  code={`import { Badge } from "@rime-ui/ui"
+
+export function Example() {
+  return <Badge>XP</Badge>
+}`}
+/>
+
+---
+
+## Default
+
+<ComponentPreview
+  preview={<Badge>XP</Badge>}
+  code={`<Badge>XP</Badge>`}
+/>
+
+---
+
+## Variants
+
+<ComponentPreview
+  preview={
+    <div className="flex flex-wrap gap-4 justify-center">
+      <Badge variant="primary">XP</Badge>
+      <Badge variant="secondary">LVL</Badge>
+      <Badge variant="ghost">1</Badge>
+      <Badge variant="dangerous">ERR</Badge>
+      <Badge variant="gold">WIN</Badge>
+    </div>
+  }
+  code={`<Badge variant="primary">XP</Badge>
+<Badge variant="secondary">LVL</Badge>
+<Badge variant="ghost">1</Badge>
+<Badge variant="dangerous">ERR</Badge>
+<Badge variant="gold">WIN</Badge>`}
+/>
+
+---
+
+## API Reference
+
+### Props
+
+| Prop        | Type                                                           | Default     |
+| ----------- | -------------------------------------------------------------- | ----------- |
+| `variant`   | `'primary' \| 'secondary' \| 'ghost' \| 'dangerous' \| 'gold'` | `'primary'` |
+| `children`  | `string`                                                       | —           |
+| `className` | `string`                                                       | —           |
+
+The `Badge` component renders a `div` element.

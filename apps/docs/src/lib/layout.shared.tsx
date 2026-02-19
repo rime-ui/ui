@@ -5,5 +5,6 @@ export function baseOptions(): BaseLayoutProps {
         nav: {
             title: 'Rime UI',
         },
+        githubUrl: 'https://github.com/rime-ui',
     }
 }

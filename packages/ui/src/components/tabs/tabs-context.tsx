@@ -1,3 +1,4 @@
+'use client'
 import { createSafeContext } from '../../hooks'
 
 export interface TabsContextValue {
