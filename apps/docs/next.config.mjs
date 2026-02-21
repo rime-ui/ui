@@ -6,7 +6,12 @@ const withMDX = createMDX()
 const config = {
     reactStrictMode: true,
     images: {
-        domains: ['images.unsplash.com'],
+        remotePatterns: [
+            {
+                protocol: 'https',
+                hostname: 'images.unsplash.com',
+            },
+        ],
     },
     async rewrites() {
         return [
