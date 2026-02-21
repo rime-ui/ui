@@ -1,0 +1,213 @@
+---
+title: Card
+description: A composable card component for displaying content and actions.
+---
+
+import { CardRoot, CardHeader, CardTitle, CardBody, CardFooter, Button } from "@rime-ui/ui"
+import { ComponentPreview } from "@/components/ui/component-preview"
+import { CodeBlock } from "@/components/ui/codeblock"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+
+# Card
+
+A flexible and composable card component used to group related content and actions. It follows the compound component pattern.
+
+---
+
+## Installation
+
+<Tabs defaultValue="npm" className="w-full mt-6">
+  <TabsList>
+    <TabsTrigger value="npm">npm</TabsTrigger>
+    <TabsTrigger value="pnpm">pnpm</TabsTrigger>
+    <TabsTrigger value="yarn">yarn</TabsTrigger>
+  </TabsList>
+
+  <TabsContent value="npm" className="mt-4">
+    <CodeBlock language="bash" code={`npm add @rime-ui/ui`} />
+  </TabsContent>
+
+  <TabsContent value="pnpm" className="mt-4">
+    <CodeBlock language="bash" code={`pnpm install @rime-ui/ui`} />
+  </TabsContent>
+
+  <TabsContent value="yarn" className="mt-4">
+    <CodeBlock language="bash" code={`yarn install @rime-ui/ui`} />
+  </TabsContent>
+</Tabs>
+
+---
+
+## Usage
+
+<CodeBlock
+  language="tsx"
+  code={`import { Card, Button } from "@rime-ui/ui"
+
+export function Example() {
+  return (
+    <Card.Root>
+      <Card.Header>
+        <Card.Title>Card Title</Card.Title>
+      </Card.Header>
+      <Card.Body>
+        Content goes here...
+      </Card.Body>
+      <Card.Footer>
+        <Button>Action</Button>
+      </Card.Footer>
+    </Card.Root>
+  )
+}`}
+/>
+
+---
+
+## Simple Card
+
+A basic card with a title, description in the header, body text, and a footer action.
+
+<ComponentPreview
+  preview={
+    <div className="max-w-sm w-full">
+        <CardRoot>
+            <CardHeader>
+                <CardTitle>Lorem Ipsum</CardTitle>
+                <span className="text-gray-500 text-sm">incididunt aute sint nulla.</span>
+            </CardHeader>
+            <CardBody>
+                Ea deserunt in amet proident irure eu in labore cupidatat pariatur lorem voluptate.
+            </CardBody>
+            <CardFooter>
+                <Button className="w-full font-semibold" variant="ghost">
+                    Confirm
+                </Button>
+            </CardFooter>
+        </CardRoot>
+    </div>
+  }
+  code={`<Card.Root>
+  <Card.Header>
+    <Card.Title>Lorem Ipsum</Card.Title>
+    <span className="text-gray-500 text-sm">incididunt aute sint nulla.</span>
+  </Card.Header>
+  <Card.Body>
+    Ea deserunt in amet proident irure eu in labore cupidatat pariatur lorem voluptate.
+  </Card.Body>
+  <Card.Footer>
+    <Button className="w-full font-semibold" variant="ghost">
+      Confirm
+    </Button>
+  </Card.Footer>
+</Card.Root>`}
+/>
+
+---
+
+## With Image
+
+You can place images inside the `Card.Root` before the header or body.
+
+<ComponentPreview
+  preview={
+    <div className="max-w-sm w-full">
+        <CardRoot className="pt-0!">
+            <CardHeader>
+            <img
+                className="aspect-video w-full object-cover grayscale rounded-t-[12px]"
+                src="https://images.unsplash.com/photo-1715423977656-3299718e8eaf?q=80&w=387&auto=format&fit=crop"
+                width={387}
+                height={217}
+                alt="Card Image"
+            />
+                <CardTitle>Photography</CardTitle>
+                <span className="text-gray-500 text-sm">Captured moments</span>
+            </CardHeader>
+            <CardBody>
+                Minimalist photography collection featuring urban landscapes.
+            </CardBody>
+        </CardRoot>
+    </div>
+  }
+  code={`
+<div className="max-w-sm w-full">
+    <CardRoot className="pt-0!">
+        <CardHeader>
+        <img
+            className="aspect-video w-full object-cover grayscale rounded-t-[12px]"
+            src="https://images.unsplash.com/photo-1715423977656-3299718e8eaf?q=80&w=387&auto=format&fit=crop"
+            width={387}
+            height={217}
+            alt="Card Image"
+        />
+            <CardTitle>Photography</CardTitle>
+            <span className="text-gray-500 text-sm">Captured moments</span>
+        </CardHeader>
+        <CardBody>
+            Minimalist photography collection featuring urban landscapes.
+        </CardBody>
+    </CardRoot>
+</div>
+`}
+/>
+
+---
+
+## RTL Support
+
+The card fully supports RTL layouts (e.g., for Arabic content).
+
+<ComponentPreview
+  preview={
+    <div className="max-w-sm w-full" dir="rtl">
+        <CardRoot dir="rtl">
+            <CardHeader>
+                <CardTitle>أبجد هوز</CardTitle>
+                <span className="text-gray-500 text-sm">وصف قصير هنا</span>
+            </CardHeader>
+            <CardBody>
+                أبجد هوز حطي كلمن سعفص قرشت ثخذ ضظغ، أبجد هوز حطي كلمن.
+            </CardBody>
+            <CardFooter>
+                <Button className="w-full font-semibold" variant="ghost">
+                    تأكيد
+                </Button>
+            </CardFooter>
+        </CardRoot>
+    </div>
+  }
+  code={`<Card.Root dir="rtl">
+  <Card.Header>
+    <Card.Title>أبجد هوز</Card.Title>
+    <span className="text-gray-500 text-sm">وصف قصير هنا</span>
+  </Card.Header>
+  <Card.Body>
+    أبجد هوز حطي كلمن سعفص قرشت ثخذ ضظغ، أبجد هوز حطي كلمن.
+  </Card.Body>
+  <Card.Footer>
+    <Button className="w-full font-semibold" variant="ghost">
+      تأكيد
+    </Button>
+  </Card.Footer>
+</Card.Root>`}
+/>
+
+---
+
+## API Reference
+
+The Card component relies on a compound component pattern.
+
+### Components
+
+| Component     | Description                                               |
+| ------------- | --------------------------------------------------------- |
+| `Card.Root`   | The main container for the card.                          |
+| `Card.Header` | Container for the card's title and description.           |
+| `Card.Title`  | The main heading of the card.                             |
+| `Card.Body`   | The main content area of the card.                        |
+| `Card.Footer` | Container for actions (buttons) at the bottom.            |
+
+### Props
+
+All Card sub-components accept standard HTML attributes (e.g., `className`, `children`, `dir`).

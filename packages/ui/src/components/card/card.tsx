@@ -4,6 +4,8 @@ import { CardHeader } from './card-header/card-header'
 import { CardRoot } from './card-root/card-root'
 import { CardTitle } from './card-title/card-title'
 
+export { CardBody, CardFooter, CardHeader, CardRoot, CardTitle }
+
 export const Card = {
     Root: CardRoot,
     Body: CardBody,

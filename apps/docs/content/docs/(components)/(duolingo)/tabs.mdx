@@ -1,0 +1,184 @@
+---
+title: Tabs
+description: A set of layered sections of content—known as tab panels—that are displayed one at a time.
+---
+
+import { TabsRoot, TabsList as UiTabsList, TabsTab, TabsContent as UiTabsContent } from "@rime-ui/ui"
+import { ComponentPreview } from "@/components/ui/component-preview"
+import { CodeBlock } from "@/components/ui/codeblock"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+
+---
+
+## Installation
+
+<Tabs defaultValue="npm" className="w-full mt-6">
+  <TabsList>
+    <TabsTrigger value="npm">npm</TabsTrigger>
+    <TabsTrigger value="pnpm">pnpm</TabsTrigger>
+    <TabsTrigger value="yarn">yarn</TabsTrigger>
+  </TabsList>
+
+  <TabsContent value="npm" className="mt-4">
+    <CodeBlock language="bash" code={`npm add @rime-ui/ui`} />
+  </TabsContent>
+
+  <TabsContent value="pnpm" className="mt-4">
+    <CodeBlock language="bash" code={`pnpm install @rime-ui/ui`} />
+  </TabsContent>
+
+  <TabsContent value="yarn" className="mt-4">
+    <CodeBlock language="bash" code={`yarn install @rime-ui/ui`} />
+  </TabsContent>
+</Tabs>
+
+---
+
+## Usage
+
+<CodeBlock
+  language="tsx"
+  code={`import { Tabs } from "@rime-ui/ui"
+
+export function Example() {
+  return (
+    <Tabs.Root defaultValue="account">
+      <Tabs.List>
+        <Tabs.Tab value="account">Account</Tabs.Tab>
+        <Tabs.Tab value="password">Password</Tabs.Tab>
+      </Tabs.List>
+      <Tabs.Content value="account">Make changes to your account here.</Tabs.Content>
+      <Tabs.Content value="password">Change your password here.</Tabs.Content>
+    </Tabs.Root>
+  )
+}`}
+/>
+
+---
+
+## Default
+
+<ComponentPreview
+  preview={
+    <div className="w-full max-w-[400px]">
+      <TabsRoot defaultValue="follow">
+        <UiTabsList>
+            <TabsTab value="follow">Following</TabsTab>
+            <TabsTab value="followers">Followers</TabsTab>
+        </UiTabsList>
+        <UiTabsContent value="follow" className="p-4 border-2 border-t-0 border-gray-200 dark:border-gray-700 rounded-b-xl">
+            <div className="flex items-center gap-3">
+                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-blue-100 text-xl">
+                    🧔
+                </div>
+                <div className="text-start">
+                    <p className="font-bold text-gray-900 dark:text-white">John Doe</p>
+                    <p className="text-sm text-gray-400">XP 6895</p>
+                </div>
+            </div>
+        </UiTabsContent>
+        <UiTabsContent value="followers" className="p-4 border-2 border-t-0 border-gray-200 dark:border-gray-700 rounded-b-xl">
+            <p className="text-gray-400 text-center py-4">No followers yet.</p>
+        </UiTabsContent>
+      </TabsRoot>
+    </div>
+  }
+  code={`<Tabs.Root defaultValue="follow">
+  <Tabs.List>
+    <Tabs.Tab value="follow">Following</Tabs.Tab>
+    <Tabs.Tab value="followers">Followers</Tabs.Tab>
+  </Tabs.List>
+  <Tabs.Content value="follow" className="p-4">
+    <div className="flex items-center gap-3">
+       {/* Content... */}
+       <p className="font-bold">John Doe</p>
+    </div>
+  </Tabs.Content>
+  <Tabs.Content value="followers" className="p-4">
+    <p className="text-gray-400 text-center">No followers yet.</p>
+  </Tabs.Content>
+</Tabs.Root>`}
+/>
+
+---
+
+## Three Tabs
+
+Example with three sections. The active tab is highlighted automatically.
+
+<ComponentPreview
+  preview={
+    <div className="w-full max-w-[400px]">
+      <TabsRoot defaultValue="gallery">
+        <UiTabsList>
+            <TabsTab value="gallery">Gallery</TabsTab>
+            <TabsTab value="messages">Messages</TabsTab>
+            <TabsTab value="settings">Settings</TabsTab>
+        </UiTabsList>
+        <UiTabsContent value="gallery" className="p-4 text-center border-2 border-t-0 border-gray-200 dark:border-gray-700 rounded-b-xl">
+            🖼️ Gallery Content
+        </UiTabsContent>
+        <UiTabsContent value="messages" className="p-4 text-center border-2 border-t-0 border-gray-200 dark:border-gray-700 rounded-b-xl">
+            💬 Messages Content
+        </UiTabsContent>
+        <UiTabsContent value="settings" className="p-4 text-center border-2 border-t-0 border-gray-200 dark:border-gray-700 rounded-b-xl">
+            ⚙️ Settings Content
+        </UiTabsContent>
+      </TabsRoot>
+    </div>
+  }
+  code={`<Tabs.Root defaultValue="gallery">
+  <Tabs.List>
+    <Tabs.Tab value="gallery">Gallery</Tabs.Tab>
+    <Tabs.Tab value="messages">Messages</Tabs.Tab>
+    <Tabs.Tab value="settings">Settings</Tabs.Tab>
+  </Tabs.List>
+  <Tabs.Content value="gallery">
+    Gallery Content
+  </Tabs.Content>
+  <Tabs.Content value="messages">
+    Messages Content
+  </Tabs.Content>
+  <Tabs.Content value="settings">
+    Settings Content
+  </Tabs.Content>
+</Tabs.Root>`}
+/>
+
+---
+
+## API Reference
+
+The Tabs component relies on a compound component pattern.
+
+### Components
+
+| Component      | Description                                               |
+| -------------- | --------------------------------------------------------- |
+| `Tabs.Root`    | The main container that manages state.                    |
+| `Tabs.List`    | The container for the tab triggers.                       |
+| `Tabs.Tab`     | The button that activates a specific content panel.       |
+| `Tabs.Content` | The content panel associated with a tab.                  |
+
+### Props
+
+#### Tabs.Root
+
+| Prop           | Type        | Default | Description                                  |
+| -------------- | ----------- | ------- | -------------------------------------------- |
+| `defaultValue` | `string`    | —       | The value of the tab that should be active initially. |
+| `className`    | `string`    | —       | Additional classes for the container.        |
+
+#### Tabs.Tab
+
+| Prop           | Type        | Default | Description                                  |
+| -------------- | ----------- | ------- | -------------------------------------------- |
+| `value`        | `string`    | —       | A unique value to identify this tab.         |
+| `className`    | `string`    | —       | Additional classes for the tab trigger.      |
+
+#### Tabs.Content
+
+| Prop           | Type        | Default | Description                                  |
+| -------------- | ----------- | ------- | -------------------------------------------- |
+| `value`        | `string`    | —       | Must match the value of the associated tab.  |
+| `className`    | `string`    | —       | Additional classes for the content wrapper.  |

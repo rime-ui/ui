@@ -1,0 +1,189 @@
+---
+title: Input
+description: A form input component with support for labels, icons, validation, and sizes.
+---
+
+import { Input, Button } from "@rime-ui/ui"
+import { ComponentPreview } from "@/components/ui/component-preview"
+import { CodeBlock } from "@/components/ui/codeblock"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+
+---
+
+## Installation
+
+<Tabs defaultValue="npm" className="w-full mt-6">
+  <TabsList>
+    <TabsTrigger value="npm">npm</TabsTrigger>
+    <TabsTrigger value="pnpm">pnpm</TabsTrigger>
+    <TabsTrigger value="yarn">yarn</TabsTrigger>
+  </TabsList>
+
+  <TabsContent value="npm" className="mt-4">
+    <CodeBlock language="bash" code={`npm add @rime-ui/ui`} />
+  </TabsContent>
+
+  <TabsContent value="pnpm" className="mt-4">
+    <CodeBlock language="bash" code={`pnpm install @rime-ui/ui`} />
+  </TabsContent>
+
+  <TabsContent value="yarn" className="mt-4">
+    <CodeBlock language="bash" code={`yarn install @rime-ui/ui`} />
+  </TabsContent>
+</Tabs>
+
+---
+
+## Usage
+
+<CodeBlock
+  language="tsx"
+  code={`import { Input } from "@rime-ui/ui"
+
+export function Example() {
+  return <Input label="Email" placeholder="Type your email" />
+}`}
+/>
+
+---
+
+## Default
+
+<ComponentPreview
+  preview={
+    <div className="w-full max-w-sm">
+      <Input label="Username" placeholder="Type your username..." />
+    </div>
+  }
+  code={`<Input label="Username" placeholder="Type your username..." />`}
+/>
+
+---
+
+## Sizes
+
+The input comes in three sizes: `small`, `medium` (default), and `large`.
+
+<ComponentPreview
+  preview={
+    <div className="flex flex-col gap-4 w-full max-w-sm">
+      <Input size="small" label="Small" placeholder="Small input" />
+      <Input size="medium" label="Medium" placeholder="Medium input" />
+      <Input size="large" label="Large" placeholder="Large input" />
+    </div>
+  }
+  code={`<Input size="small" label="Small" placeholder="Small input" />
+<Input size="medium" label="Medium" placeholder="Medium input" />
+<Input size="large" label="Large" placeholder="Large input" />`}
+/>
+
+---
+
+## With Icons
+
+You can add icons to the left or right side of the input.
+
+<ComponentPreview
+  preview={
+    <div className="flex flex-col gap-4 w-full max-w-sm">
+      <Input 
+        label="Search" 
+        placeholder="Search..." 
+        leftIcon={
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        } 
+      />
+      <Input 
+        label="Website" 
+        placeholder="example.com" 
+        rightIcon={<span className="text-sm font-medium">.com</span>} 
+      />
+    </div>
+  }
+  code={`<Input 
+  label="Search" 
+  placeholder="Search..." 
+  leftIcon={<SearchIcon />} 
+/>
+
+<Input 
+  label="Website" 
+  placeholder="example.com" 
+  rightIcon={<span className="text-sm font-medium">.com</span>} 
+/>`}
+/>
+
+---
+
+## Validation States
+
+The input supports `error` and `success` variants. The `error` prop can take a string to display a validation message automatically.
+
+<ComponentPreview
+  preview={
+    <div className="flex flex-col gap-4 w-full max-w-sm">
+      <Input 
+        variant="success" 
+        label="Username" 
+        defaultValue="valid_user"
+        helperText="Username is available!"
+        rightIcon={
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-green-500"><polyline points="20 6 9 17 4 12"/></svg>
+        }
+      />
+      <Input 
+        label="Email" 
+        defaultValue="invalid-email" 
+        error="Please enter a valid email address"
+        leftIcon={
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>
+        }
+      />
+    </div>
+  }
+  code={`<Input 
+  variant="success" 
+  label="Username" 
+  defaultValue="valid_user"
+  helperText="Username is available!"
+/>
+
+<Input 
+  label="Email" 
+  defaultValue="invalid-email" 
+  error="Please enter a valid email address"
+/>`}
+/>
+
+---
+
+## Disabled
+
+<ComponentPreview
+  preview={
+    <div className="w-full max-w-sm">
+      <Input disabled label="Disabled" placeholder="You cannot type here" />
+    </div>
+  }
+  code={`<Input disabled label="Disabled" placeholder="You cannot type here" />`}
+/>
+
+---
+
+## API Reference
+
+### Props
+
+| Prop         | Type                                     | Default     | Description                                |
+| ------------ | ---------------------------------------- | ----------- | ------------------------------------------ |
+| `label`      | `string`                                 | —           | The label displayed above the input.       |
+| `variant`    | `'default' \| 'error' \| 'success'`      | `'default'` | The visual style variant of the input.     |
+| `size`       | `'small' \| 'medium' \| 'large'`         | `'medium'`  | The size of the input field.               |
+| `error`      | `string \| boolean`                      | —           | Shows error state. Displays text if string.|
+| `helperText` | `string`                                 | —           | Helper text displayed below the input.     |
+| `leftIcon`   | `ReactNode`                              | —           | Icon displayed on the left side.           |
+| `rightIcon`  | `ReactNode`                              | —           | Icon displayed on the right side.          |
+| `className`  | `string`                                 | —           | Additional classes for the wrapper.        |
+| `dir`        | `'ltr' \| 'rtl'`                         | —           | Layout direction (useful for Arabic).      |
+
+The `Input` component also accepts all standard `HTMLInputElement` attributes (like `type`, `placeholder`, `onChange`, `disabled`, etc.).

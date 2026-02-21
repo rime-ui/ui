@@ -1,3 +1,4 @@
+'use client'
 import React from 'react'
 import { tv, type VariantProps } from 'tailwind-variants'
 import { type TabsContextValue, TabsProvider } from '../tabs-context'
